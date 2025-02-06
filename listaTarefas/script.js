@@ -10,8 +10,9 @@ function renderTasks() {
         li.innerHTML = `
             <span>${task}</span> 
             <div>
-                <button class="edit-btn" onclick="editTask($index)">Editar</button>
-                <button class="delete-btn" onclick="deleteTask($index)">Remover</button>
+                <button class="edit-btn" onClick="editTask($index)">Editar</button>
+                <button class="delete-btn" onClick="deleteTask($index)">Remover</button>
+                <button onClick="mudarNome()">Personalizar Saudação</button>
             </div>
             `;      
         taskList.appendChild(li);
