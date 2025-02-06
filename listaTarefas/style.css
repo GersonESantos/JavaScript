@@ -82,7 +82,7 @@ li {
     border-radius: 5px;
     font-size: 10px;
 
-    text-decoration: line-through;
+    /* text-decoration: line-through; */
 }   
 .edit-btn{
     background-color: #0044ff;
@@ -93,5 +93,9 @@ li {
     border-radius: 5px;
     font-size: 10px;
 
-    text-decoration: line-through;   
+    /* text-decoration: line-through;    */
 }
+
+
+
+

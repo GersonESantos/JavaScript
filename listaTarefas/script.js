@@ -33,9 +33,9 @@ form.addEventListener('submit', (event) => {
 });
 // Edita uma tarefa
 
-window.editTasK = (index) =>{
+window.editTask = (index) => { 
     const newTask = prompt('Digite a nova tarefa', tasks[index]);
-    if (newTask.trim() !== null) {
+    if (newTask.trim() !== '') {
         tasks[index] = newTask.trim();
         renderTasks();
     }
@@ -43,7 +43,7 @@ window.editTasK = (index) =>{
 
 // Remove uma tarefa
 
-window.deleteTasK = (index) => {
+window.deleteTask = (index) =>  {
     
     if (confirm('Tem certeza que deseja excluir esta tarefa?')) {
         tasks.splice(index, 1);
