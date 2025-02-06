@@ -4,15 +4,14 @@ const taskInput = document.getElementById('task-input');
 const taskList = document.getElementById('task-list');
 let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 function renderTasks() {
-    taskList.innerHTML = '';
+    taskList.innerHTML = '';     
     tasks.forEach((task, index) => {
         const li = document.createElement('li');
         li.innerHTML = `
             <span>${task}</span> 
             <div>
-                <button class="edit-btn" onClick="editTask($index)">Editar</button>
-                <button class="delete-btn" onClick="deleteTask($index)">Remover</button>
-                <button onClick="mudarNome()">Personalizar Saudação</button>
+                <button class="edit-btn" onclick="editTask(${index})">Editar</button>
+                <button class="delete-btn" onClick="deleteTask(${index})">Remover</button>             
             </div>
             `;      
         taskList.appendChild(li);
@@ -34,7 +33,7 @@ form.addEventListener('submit', (event) => {
 });
 // Edita uma tarefa
 
-window.editTasK = (index) => {
+window.editTasK = (index) =>{
     const newTask = prompt('Digite a nova tarefa', tasks[index]);
     if (newTask.trim() !== null) {
         tasks[index] = newTask.trim();
@@ -42,7 +41,7 @@ window.editTasK = (index) => {
     }
 };
 
-// excluir uma tarefa
+// Remove uma tarefa
 
 window.deleteTasK = (index) => {
     

@@ -17,11 +17,11 @@ h1 {
     text-align: center;
     color: #e9e9ff;
 }
-task-form {
+#task-form {
     display: flex;
     margin-bottom: 20px;
 }   
-task-input {
+#task-input {
     flex-grow: 1;
     padding: 10px;  
     font-size: 16px;
@@ -42,10 +42,10 @@ button:hover {
     background-color: #6600cc;
 }
 ul {
-    list-style: none;
+    list-style-type: none;
     padding: 0;
 }
-form input[type="text"] {
+/* form input[type="text"] {
     flex-grow: 1;
     padding: 10px;
     font-size: 16px;
@@ -60,11 +60,9 @@ form button {
     cursor: pointer;
     border: 1px solid #007bff;
     border-radius: 0 5px 5px 0;
-}
-ul {
-    list-style: none;
-    padding: 0;
-}
+} */
+
+
 li {
     background-color: #d4b0e2;
     padding: 10px;
@@ -73,10 +71,10 @@ li {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #f0f0f0;
+    
 }
-delete-btn {
-    background-color: #ff0000;
+.delete-btn {
+    background-color: red;
     color: white;
     border: none;
     padding: 5px 10px;
@@ -86,7 +84,7 @@ delete-btn {
 
     text-decoration: line-through;
 }   
-edit-btn{
+.edit-btn{
     background-color: #0044ff;
     color: white;
     border: none;
