@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARRAY</title>
+</head>
+<body>
+    <h1>Array</h1>
+    <p>Array é uma variável que pode armazenar mais de um valor.</p>
+    <p>Os valores são armazenados em posições, chamadas de índices.</p>
+    <p>Os índices começam em 0.</p>
+    <p>Para criar um array, usamos a função array().</p>
+    <p>Exemplo:</p>
+    <pre>
+        $frutas = array('maçã', 'banana', 'laranja');
+    </pre>
+    <p>Para acessar um valor do array, usamos o índice correspondente.</p>
+    <p>Exemplo:</p>
+    <pre>
+        echo $frutas[0]; // maçã
+        echo $frutas[1]; // banana
+        echo $frutas[2]; // laranja
+    </pre>
+    <p>Para adicionar um valor ao array, usamos a função array_push().</p>
+    <p>Exemplo:</p>
+    <pre>
+        array_push($frutas, 'uva');
+    </pre>
+    <p>Para remover um valor do array, usamos a função array_pop().</p>
+    <p>Exemplo:</p>
+    <pre>
+        array_pop($frutas);
+    </pre>
+    <p>Para saber o tamanho do array, usamos a função count().</p>
+    <p>Exemplo:</p>
+    <pre>
+        echo count($frutas); // 3
+    </pre>
+    <p>Para percorrer um array, usamos o laço de repetição foreach().</p>
+    <p>Exemplo:</p>
+    <pre>
+        foreach ($frutas as $fruta) {
+            echo $fruta;
+        }
+    </pre>
+    <p>Para percorrer um array associativo, usamos o laço de repetição foreach().</p>
+    <p>Exemplo:</p>
+    <pre>
+        $pessoa = array('nome' => 'João', 'idade' => 30);
+        foreach ($pessoa as $chave => $valor) {
+            echo $chave . ': ' . $valor;
+        }
+    </pre>
+    <p>Para ordenar um array, usamos a função sort().</p>
+    <script src="conceito.js"></script>
+</body>
+</html>
