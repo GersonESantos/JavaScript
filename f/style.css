@@ -1,0 +1,21 @@
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        .saudacao {
+            font-size: 18px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        button, input {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 5px;
+        }
+    

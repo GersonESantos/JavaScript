@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página inicial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        .saudacao {
+            font-size: 18px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        button, input {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Exemplos de Funções em JavaScript</h1>
+    
+    <h2>1️⃣ Função sem retorno (`void`)</h2>
+    <h3>Essa função apenas executa uma ação sem retornar nada.</h3>
+    
+    <div class="container">
+        <input type="button" onclick="teste1()" value="Botão de teste 1">
+        <br>
+        <input type="button" onclick="teste2()" value="Botão de teste 2">
+        <br>
+        
+        <div class="saudacao" id="mensagemSaudacao">Olá, visitante!</div>
+        <br>
+        <button onclick="mudarNome()">Personalizar Saudação</button>
+    </div>
+    
+    <script>
+        function teste1() {
+            alert('Você clicou no Botão de teste 1');
+        }
+
+        function teste2() {
+            alert('Você clicou no Botão de teste 2');
+        }
+
+        function mudarNome() {
+            let nome = prompt("Qual é o seu nome?");
+            if (nome) {
+                document.getElementById("mensagemSaudacao").textContent = "Olá, " + nome + "!";
+            }
+        }
+    </script>
+</body>
+
+</html>

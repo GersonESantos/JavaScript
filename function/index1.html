@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head> let nome = "Gerson";
+        document.getElementById("mensagemSaudaca").textContent = "Olá, " + nome + "!";  
+
+<body>
+    <h1>Exemplos de Funções em JavaScript</h1>
+    <h2> 1️⃣ Função sem retorno (`void`)</h2>
+    
+    <div class="container">
+        <!-- <h1>Boas vindas!</h1>
+        <p>Vamos personalizar sua saudação usando JavaScript!</p> -->
+        <div class="saudacao" id="mensagemSaudaca">Olá, visitante!</div>
+        <button onClick="mudarNome()">Personalizar Saudação</button>
+  </div>
+        <button onClick="exibirMensagem()">Mostrar meu nome</button>
+      </div>
+    
+    <script src="function.js"></script>
+    <script>
+        function mudarNome() {
+          let nome = "Gerson";
+          document.getElementById("mensagemSaudaca").textContent = "Olá, " + nome + "!";  
+        }
+      </script>
+</body>
+</html>

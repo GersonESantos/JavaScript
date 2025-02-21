@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página inicial</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Exemplos de Funções em JavaScript</h1>
+    <div class="container">
+    
+        <h2>1️⃣ Função sem retorno (`void`)</h2>
+        <h3>Essa função apenas executa uma ação sem retornar nada.</h3>
+        <pre><code>
+function dizerOla(nome) {
+    console.log("Olá, " + nome + "!");
+}
+
+dizerOla("Lucas"); // Saída: Olá, Lucas!
+        </code></pre>
+        <div class="Ola" id="mensagemOla">Olá, visitante!</div>
+        <input type="button" onclick="dizerOla()" value="dizerOla">        
+
+        <input type="button" onclick="teste1()" value="Botão de teste 1">
+        <br>
+        <input type="button" onclick="teste2()" value="Botão de teste 2">
+        <br>
+        
+        <br>
+        <hr>
+        
+        <h2>2️⃣ Função com retorno</h2>
+        <h3>Essa função retorna um valor quando chamada.</h3>
+        <pre><code>
+            function dobrar(numero) {
+                return numero * 2;
+            }
+            
+            let resultado = dobrar(4);
+            console.log(resultado); // Saída: 8
+        </code></pre>
+        <div class="saudacao" id="mensagemSaudacao">Olá, visitante!</div>
+        <button onclick="mudarNome()">Personalizar Saudação</button>
+
+        <hr>
+
+        <h2>3️⃣ Função anônima (atribuída a uma variável)</h2>
+        <pre><code>
+const somar = function(a, b) {
+    return a + b;
+};
+
+console.log(somar(5, 7)); // Saída: 12
+        </code></pre>
+        <hr>
+
+        <h2>4️⃣ Arrow Function (Função de seta)</h2>
+        <h3>Uma forma mais curta de escrever funções.</h3>
+        <pre><code>
+const multiplicar = (x, y) => x * y;
+
+console.log(multiplicar(3, 4)); // Saída: 12
+        </code></pre>
+        <hr>
+
+        <h2>5️⃣ Função que recebe outra função como argumento (Callback)</h2>
+        <pre><code>
+function processarNumero(numero, callback) {
+    return callback(numero);
+}
+
+function aoQuadrado(n) {
+    return n * n;
+}
+
+console.log(processarNumero(5, aoQuadrado)); // Saída: 25
+        </code></pre>
+        <hr>
+
+        <h2>6️⃣ Função que retorna outra função (Função de Alta Ordem)</h2>
+        <pre><code>
+function criarMultiplicador(multiplicador) {
+    return function(numero) {
+        return numero * multiplicador;
+    };
+}
+
+const dobrarNumero = criarMultiplicador(2);
+console.log(dobrarNumero(5)); // Saída: 10
+        </code></pre>
+        <hr>
+
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+
+</html>
