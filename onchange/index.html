@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de onchange</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .task-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        select {
+            padding: 5px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="task-container">
+        <h3>Tarefa Exemplo</h3>
+        <p>Descrição: Fazer relatório</p>
+        <label for="task_status_1">Status:</label>
+        <select id="task_status_1" onchange="change_task_status(1)">
+            <option value="new" selected>new</option>
+            <option value="em progresso">em progresso</option>
+            <option value="pendente">pendente</option>
+            <option value="concluído">concluído</option>
+        </select>
+        <p id="message">Status atual: new</p>
+    </div>
+
+    <script>
+        // Função chamada pelo evento onchange
+        // function change_task_status(taskId) {
+        //     // Pega o elemento <select> pelo ID
+        //     let select = document.getElementById(`task_status_${taskId}`);
+        //     // Pega o novo valor selecionado
+        //     let newStatus = select.value;
+        //     // Atualiza a mensagem na tela
+        //     document.getElementById("message").textContent = `Status atual: ${newStatus}`;
+        //     // Exibe no console para depuração
+        //     console.log(`Tarefa ${taskId} mudou para ${newStatus}`);
+        // }
+
+        function change_task_status(taskId) {
+    let select = document.getElementById(`task_status_${taskId}`);
+    let newStatus = select.value;
+    document.getElementById("message").textContent = `Status atual: ${newStatus}`;
+    console.log(`Tarefa ${taskId} mudou para ${newStatus}`);
+    // Simulação de atualização no servidor
+    fetch(`http://localhost:3000/user/1/tasks/${taskId}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ status: newStatus })
+    }).then(response => console.log('Status atualizado no servidor!'));
+}
+    </script>
+</body>
+</html>
