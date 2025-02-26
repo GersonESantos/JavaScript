@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR"> <!-- Alterei para pt-BR para consistência com exemplos anteriores -->
+<head>
+    <meta charset="UTF-8"> <!-- Define codificação UTF-8 para caracteres especiais -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura responsividade -->
+    <title>Seleção de Cor</title> <!-- Título mais descritivo -->
+    <style>
+        /* Estiliza o corpo da página para centralizar o conteúdo */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column; /* Organiza elementos em coluna */
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Altura total da tela */
+            margin: 0;
+            background-color: #f0f0f0; /* Fundo cinza claro */
+        }
+        select, p {
+            font-size: 18px; /* Aumenta a fonte para melhor visibilidade */
+            margin: 10px; /* Espaçamento entre elementos */
+        }
+    </style>
+</head>
+<body>
+    <!-- Lista suspensa para selecionar a cor -->
+    <select id="cor" onchange="mudarCor()">
+        <option value="vermelho">Vermelho</option>
+        <option value="azul">Azul</option>
+        <option value="verde">Verde</option>
+    </select>
+    <!-- Parágrafo que exibirá a cor selecionada, inicialmente "nenhuma" -->
+    <p id="resultado">Cor atual: nenhuma</p>
+    
+    <script>
+        // Função chamada pelo evento onchange do <select>
+        // function mudarCor() {
+        //     // Pega o elemento <select> pelo ID "cor"
+        //     let select = document.getElementById("cor");
+        //     // Pega o valor da opção selecionada (ex.: "vermelho")
+        //     let novaCor = select.value;
+        //     // Pega o elemento <p> pelo ID "resultado"
+        //     let resultado = document.getElementById("resultado");
+        //     // Atualiza o texto do <p> com a cor selecionada
+        //     resultado.textContent = `Cor atual: ${novaCor}`;
+        //     // Define a cor do texto do <p> como o valor selecionado
+        //     resultado.style.color = novaCor; // Ex.: "vermelho" vira vermelho
+        // }
+
+    function mudarCor() {
+        let select = document.getElementById("cor");
+        let novaCor = select.value;
+        let resultado = document.getElementById("resultado");
+        resultado.textContent = `Cor atual: ${novaCor}`;
+        // Mapeia nomes em português para cores em inglês
+    let corEmIngles = {
+        "vermelho": "red",
+        "azul": "blue",
+        "verde": "green",
+        "amarelo": "yellow"
+    }[novaCor] || "black"; // Default para preto se não encontrar
+    resultado.style.color = corEmIngles;
+}
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR"> <!-- Alterei para pt-BR por consistência -->
+<head>
+    <meta charset="UTF-8"> <!-- Define codificação UTF-8 para caracteres especiais -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura responsividade -->
+    <title>Seleção de Cor e Forma</title> <!-- Título mais descritivo -->
+</head>
+<body>
+    <!-- Primeiro <select> para escolher a cor, com evento onchange -->
+    <select id="cor" onchange="mudarCorForma()">
+        <option value="vermelho">Vermelho</option>
+        <option value="azul">Azul</option>
+        <option value="verde">Verde</option>
+    </select>
+    
+    <!-- Segundo <select> para escolher a forma, com evento onchange -->
+    <select id="forma" onchange="mudarCorForma()">
+        <option value="círculo">Círculo</option>
+        <option value="quadrado">Quadrado</option>
+        <option value="triângulo">Triângulo</option>
+    </select>
+    
+    <!-- Parágrafo que exibirá a combinação de cor e forma -->
+    <p id="resultado">Cor atual: nenhuma | Forma: nenhuma</p>
+    
+    <script>
+        // Função chamada pelos eventos onchange de ambos os <select>
+        function mudarCorForma() {
+            // Pega o elemento <select> de cor pelo ID "cor"
+            let selectCor = document.getElementById("cor");
+            // Pega o valor da cor selecionada (ex.: "vermelho")
+            let novaCor = selectCor.value;
+            
+            // Pega o elemento <select> de forma pelo ID "forma"
+            let selectForma = document.getElementById("forma");
+            // Pega o valor da forma selecionada (ex.: "círculo")
+            let novaForma = selectForma.value;
+            
+            // Atualiza o texto do <p> com a combinação de cor e forma
+            document.getElementById("resultado").textContent = `Cor atual: ${novaCor} | Forma: ${novaForma}`;
+        }
+    </script>
+</body>
+</html>
