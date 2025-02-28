@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo com Botões Editar e Excluir</title>
+</head>
+<body>
+    <h1>Exemplo de Criação de Elemento com JavaScript</h1>
+    <p>Este parágrafo já existe no HTML.</p>
+    <button onclick="adicionarParagrafo()">Adicionar Novo Parágrafo</button>
+
+    <script>
+        // Função que cria e adiciona o parágrafo com dois botões
+        function adicionarParagrafo() {
+            // Criando um novo elemento <p>
+            var novoP = document.createElement("p");
+            novoP.textContent = "Novo parágrafo ";
+
+            // Criando o botão "Editar"
+            var botaoEditar = document.createElement("button");
+            botaoEditar.textContent = "Editar";
+            botaoEditar.onclick = function() {
+                novoP.textContent = "Parágrafo editado! ";
+                novoP.appendChild(botaoEditar); // Reanexa o botão Editar
+                novoP.appendChild(botaoExcluir); // Reanexa o botão Excluir
+            };
+
+            // Criando o botão "Excluir"
+            var botaoExcluir = document.createElement("button");
+            botaoExcluir.textContent = "Excluir";
+            botaoExcluir.onclick = function() {
+                novoP.remove(); // Remove o parágrafo da página
+            };
+
+            // Adicionando os botões ao parágrafo
+            novoP.appendChild(botaoEditar);
+            novoP.appendChild(botaoExcluir);
+
+            // Adicionando o parágrafo completo ao corpo da página
+            document.body.appendChild(novoP);
+        }
+    </script>
+</body>
+</html>

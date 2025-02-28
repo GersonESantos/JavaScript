@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo querySelector com Hierarquia</title>
+</head>
+<body>
+    <h1>Exemplo de Manipulação com querySelector</h1>
+    <div id="meuId">
+        <span class="minhaClasse">Este é o elemento selecionado.</span>
+    </div>
+    <div class="minhaClasse">Este tem a classe, mas não está dentro do id.</div>
+    <p>Este é um parágrafo qualquer.</p>
+
+    <script>
+        // Selecionando um elemento com .minhaClasse dentro de #meuId
+        var elemento = document.querySelector("#meuId .minhaClasse");
+        
+        // Mudando a cor de fundo para amarelo
+        elemento.style.backgroundColor = "yellow";
+    </script>
+</body>
+</html>

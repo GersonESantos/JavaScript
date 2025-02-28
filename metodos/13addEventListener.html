@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo addEventListener</title>
+</head>
+<body>
+    <h1>Exemplo de Evento com addEventListener</h1>
+    <p>Clique no botão abaixo para ver o alerta.</p>
+    <button id="meuBotao">Clique Aqui</button>
+
+    <script>
+        // Selecionando o botão pelo id
+        var botao = document.getElementById("meuBotao");
+        
+        // Adicionando um ouvinte de evento para o clique
+        botao.addEventListener("click", function() {
+            alert("Botão clicado!");
+        });
+    </script>
+</body>
+</html>

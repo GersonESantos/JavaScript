@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo com Funções Editar e Excluir</title>
+</head>
+<body>
+    <h1>Exemplo de Criação de Elemento com JavaScript</h1>
+    <p>Este parágrafo já existe no HTML.</p>
+    <button onclick="adicionarParagrafo()">Adicionar Novo Parágrafo</button>
+
+    <script>
+        // Função para adicionar um novo parágrafo com botões
+
+
+        function adicionarParagrafo() {
+    var novoP = document.createElement("p");
+    novoP.textContent = "Novo parágrafo ";
+
+    var botaoEditar = document.createElement("button");
+    botaoEditar.textContent = "Editar";
+    botaoEditar.style.backgroundColor = "lightgreen";
+    botaoEditar.style.margin = "0 5px";
+    botaoEditar.onclick = function() {
+        editarParagrafo(novoP);
+    };
+
+    var botaoExcluir = document.createElement("button");
+    botaoExcluir.textContent = "Excluir";
+    botaoExcluir.style.backgroundColor = "lightcoral";
+    botaoExcluir.style.margin = "0 5px";
+    botaoExcluir.onclick = function() {
+        excluirParagrafo(novoP);
+    };
+
+    novoP.appendChild(botaoEditar);
+    novoP.appendChild(botaoExcluir);
+    document.body.appendChild(novoP);
+}
+
+
+
+        function aadicionarParagrafo() {
+            var novoP = document.createElement("p");
+            novoP.textContent = "Novo parágrafo ";
+
+            // Criando o botão "Editar"
+            var botaoEditar = document.createElement("button");
+            botaoEditar.textContent = "Editar";
+            botaoEditar.onclick = function() {
+                editarParagrafo(novoP); // Chama a função editar passando o parágrafo
+            };
+
+            // Criando o botão "Excluir"
+            var botaoExcluir = document.createElement("button");
+            botaoExcluir.textContent = "Excluir";
+            botaoExcluir.onclick = function() {
+                excluirParagrafo(novoP); // Chama a função excluir passando o parágrafo
+            };
+
+            // Adicionando os botões ao parágrafo
+            novoP.appendChild(botaoEditar);
+            novoP.appendChild(botaoExcluir);
+
+            // Adicionando o parágrafo ao body
+            document.body.appendChild(novoP);
+        }
+
+        // Função para editar o parágrafo
+        function editarParagrafo(paragrafo) {
+            paragrafo.textContent = "Parágrafo editado! ";
+            // Reanexando os botões para não perdê-los
+            var botaoEditar = document.createElement("button");
+            botaoEditar.textContent = "Editar";
+            botaoEditar.onclick = function() {
+                editarParagrafo(paragrafo);
+            };
+
+            var botaoExcluir = document.createElement("button");
+            botaoExcluir.textContent = "Excluir";
+            botaoExcluir.onclick = function() {
+                excluirParagrafo(paragrafo);
+            };
+
+            paragrafo.appendChild(botaoEditar);
+            paragrafo.appendChild(botaoExcluir);
+        }
+
+        // Função para excluir o parágrafo
+        function excluirParagrafo(paragrafo) {
+            paragrafo.remove(); // Remove o parágrafo da página
+        }
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

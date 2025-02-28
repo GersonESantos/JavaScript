@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo querySelectorAll</title>
+</head>
+<body>
+    <h1>Exemplo de Manipulação com querySelectorAll</h1>
+    <p class="minhaClasse">Este é o primeiro parágrafo com a classe.</p>
+    <p>Este parágrafo não tem a classe e não terá borda.</p>
+    <p class="minhaClasse">Este é o segundo parágrafo com a classe.</p>
+    <div class="minhaClasse">Esta div tem a classe, mas não é um p.</div>
+
+    <script>
+        // Selecionando todos os parágrafos com a classe "minhaClasse"
+        var itens = document.querySelectorAll("p.minhaClasse");
+        
+        // Aplicando uma borda azul a cada item selecionado
+        itens.forEach(function(item) {
+            item.style.border = "10px solid blue";
+            item.style.padding = "10px";
+            item.style.margin = "10px";
+            item.style.backgroundColor = "lightblue";
+            item.style.color = "black";
+            item.style.fontFamily = "Arial";
+            item.style.fontSize = "20px";
+        });
+    </script>
+</body>
+</html>

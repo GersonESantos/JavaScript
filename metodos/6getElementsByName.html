@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo getElementsByName</title>
+</head>
+<body>
+    <h1>Exemplo de Manipulação com getElementsByName</h1>
+    <form>
+        <label>Input 1: </label>
+        <input type="text" name="meuNome" placeholder="Digite algo"><br><br>
+        <label>Input 2: </label>
+        <input type="text" name="meuNome" placeholder="Digite algo"><br><br>
+        <label>Input sem nome: </label>
+        <input type="text" placeholder="Não será afetado">
+    </form>
+
+    <script>
+        // Selecionando todos os elementos com name="meuNome"
+        var inputs = document.getElementsByName("meuNome");
+        
+        // Definindo o valor do primeiro input como "Grok"
+        inputs[0].value = "Grok";
+    </script>
+</body>
+</html>

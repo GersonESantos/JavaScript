@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo createElement com Botão</title>
+</head>
+<body>
+    <h1>Exemplo de Criação de Elemento com JavaScript</h1>
+    <p>Este parágrafo já existe no HTML.</p>
+    <button onclick="adicionarParagrafo()">Adicionar Novo Parágrafo</button>
+
+    <script>
+        // Função que cria e adiciona o parágrafo ao clicar no botão
+        function adicionarParagrafo() {
+            // Criando um novo elemento <p>
+            var novoP = document.createElement("p");
+            
+            // Definindo o texto do novo parágrafo
+            novoP.textContent = "Novo parágrafo";
+            
+            // Adicionando o novo parágrafo ao corpo da página
+            document.body.appendChild(novoP);
+        }
+    </script>
+</body>
+</html>
