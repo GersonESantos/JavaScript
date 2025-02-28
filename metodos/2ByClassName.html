@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo getElementsByClassName</title>
+</head>
+<body>
+    <h1>Exemplo de Manipulação com JavaScript</h1>
+    <p class="minhaClasse">Este é o primeiro parágrafo.</p>
+    <p class="minhaClasse">Este é o segundo parágrafo.</p>
+    <div class="minhaClasse">Este é um texto em uma div.</div>
+    <p>Este parágrafo não tem a classe e não mudará de cor.</p>
+
+    <script>
+        // Selecionando todos os elementos com a classe "minhaClasse"
+        var itens = document.getElementsByClassName("minhaClasse");
+        
+        // Loop para percorrer cada elemento e mudar a cor do texto para verde
+        for (var i = 0; i < itens.length; i++) {
+            itens[i].style.color = "green";
+        }
+    </script>
+</body>
+</html>

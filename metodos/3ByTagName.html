@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo getElementsByTagName</title>
+</head>
+<body>
+    <h1>Manipulação de Parágrafos com JavaScript</h1>
+    <p>Este é o primeiro parágrafo com tamanho padrão.</p>
+    <p>Este é o segundo parágrafo com tamanho padrão.</p>
+    <p>Este é o terceiro parágrafo com tamanho padrão.</p>
+    <div>Este é um texto em uma div, não será afetado.</div>
+
+    <script>
+        // Selecionando todos os elementos <p> da página
+        var paragrafos = document.getElementsByTagName("p");
+        
+        // Loop para percorrer cada parágrafo e mudar o tamanho da fonte para 16px
+        for (var i = 0; i < paragrafos.length; i++) {
+            paragrafos[i].style.fontSize = "36px";
+        }
+    </script>
+</body>
+</html>

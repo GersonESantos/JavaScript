@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>10 Métodos JS</title>
+</head>
+<body>
+    <h1 id="titulo">Título</h1>
+    <p class="texto">Parágrafo 1</p>
+    <p class="texto">Parágrafo 2</p>
+    <input type="text" name="entrada" value="Digite aqui">
+    <button id="botao">Clique</button>
+
+    <script>
+        // 1. getElementById
+        document.getElementById("titulo").style.color = "blue";
+
+        // 2. getElementsByClassName
+        var textos = document.getElementsByClassName("texto");
+        for (var i = 0; i < textos.length; i++) {
+            textos[i].style.fontWeight = "bold";
+        }
+
+        // 3. getElementsByTagName
+        var paragrafos = document.getElementsByTagName("p");
+        paragrafos[0].textContent = "Texto alterado";
+
+        // 4. querySelector
+        document.querySelector(".texto").style.backgroundColor = "lightgray";
+
+        // 5. querySelectorAll
+        var todosTextos = document.querySelectorAll("p.texto");
+        todosTextos.forEach(function(p) {
+            p.style.border = "1px solid red";
+        });
+
+        // 6. getElementsByName
+        var input = document.getElementsByName("entrada")[0];
+        input.style.padding = "5px";
+
+        // 7. addEventListener
+        var botao = document.getElementById("botao");
+        botao.addEventListener("click", function() {
+            alert("Botão clicado!");
+        });
+
+        // 8. appendChild e 9. createElement
+        var novaDiv = document.createElement("div");
+        novaDiv.textContent = "Nova div adicionada";
+        document.body.appendChild(novaDiv);
+
+        // 10. remove
+        var remover = document.querySelector(".texto");
+        setTimeout(function() {
+            remover.remove();
+        }, 3000); // Remove após 3 segundos
+    </script>
+</body>
+</html>
