@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo createElement com LI</title>
+</head>
+<body>
+    <h1>Exemplo de Criação de Item de Lista com JavaScript</h1>
+    <p>Este conteúdo já existe no HTML.</p>
+    <ul id="minhaLista">
+        <li>Item 1 (estático)</li>
+        <li>Item 2 (estático)</li>
+    </ul>
+
+    <script>
+        // Criando um novo elemento <li>
+        var novoLi = document.createElement("li");
+        
+        // Definindo o texto do novo item de lista
+        novoLi.textContent = "Novo item de lista";
+        
+        // Adicionando o novo <li> à lista existente
+        document.getElementById("minhaLista").appendChild(novoLi);
+
+        // Alterando o estilo do novo item de lista    
+        novoLi.style.color = "blue";           // Cor do texto
+        novoLi.style.fontWeight = "bold";      // Texto em negrito
+        document.getElementById("minhaLista").appendChild(novoLi);
+    </script>
+</body>
+</html>

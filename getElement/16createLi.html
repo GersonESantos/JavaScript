@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo Itens em Caixas</title>
+    <style>
+        /* Estilizando cada caixa */
+        .caixa-item {
+            border: 2px solid black;
+            background-color: #f0f0f0;
+            padding: 10px;
+            margin: 10px auto;
+            width: 250px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Exemplo de Criação de Itens em Caixas com JavaScript</h1>
+    <p>Este conteúdo já existe no HTML.</p>
+    
+    <!-- Lista para conter os itens -->
+    <ul id="minhaLista" style="list-style-type: none; padding: 0;">
+        <li><div class="caixa-item">Item 1 (estático)</div></li>
+        <li><div class="caixa-item">Item 2 (estático)</div></li>
+    </ul>
+
+    <script>
+        // Criando um novo item de lista com uma caixa
+        var novoLi = document.createElement("li");
+        
+        // Criando a div que será a caixa
+        var novaCaixa = document.createElement("div");
+        novaCaixa.className = "caixa-item"; // Aplicando a classe de estilo
+        novaCaixa.textContent = "Novo item de lista";
+        
+        // Adicionando a caixa ao <li>
+        novoLi.appendChild(novaCaixa);
+        
+        // Adicionando o <li> à lista
+        document.getElementById("minhaLista").appendChild(novoLi);
+    </script>
+</body>
+</html>
