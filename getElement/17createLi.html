@@ -1,32 +1,37 @@
-<button onclick="adicionarItem()">Adicionar Item</button>
-<ul id="minhaLista" style="list-style-type: none; padding: 0;">
-    <li><div class="caixa-item">Item 1 (estático)</div></li>
-    <li><div class="caixa-item">Item 2 (estático)</div></li>
-</ul>
-<script>
-    function adicionarItem() {
-        var novoLi = document.createElement("li");
-        var novaCaixa = document.createElement("div");
-        novaCaixa.className = "caixa-item";
-        novaCaixa.textContent = "Novo item de lista ";
+<!DOCTYPE html>
+<html lang="pt-br">
 
-        var botaoEditar = document.createElement("button");
-        botaoEditar.textContent = "Editar";
-        botaoEditar.onclick = function() {
-            novaCaixa.textContent = "Item editado! ";
-            novaCaixa.appendChild(botaoEditar);
-            novaCaixa.appendChild(botaoExcluir);
-        };
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefa</title>
+    <ul id="listaTarefas"></ul>
+</head>
 
-        var botaoExcluir = document.createElement("button");
-        botaoExcluir.textContent = "Excluir";
-        botaoExcluir.onclick = function() {
-            novoLi.remove();
-        };
+<body>
+    <div>
+        <h1>Lista De Trefas</h1>
+        <input type="text" id="inputTarefa" placeholder="Digite sua tarefa">
+        <button onclick="adicionarTarefa()"></button>
+        <ul id="listaTarefa"></ul>
+    </div>
+    <script>
+        const inputTarefa = document.getElementById("inputTarefa");
+        let tarefa = inputTarefa.value;
+        let listaTarefa = document.getElementById("listaTarefas");
+        listaTarefa.innerHTML = "";
+        function adicionarTarefa() {
+            let novaTarefa = document.createElement("li");
+            novaTarefa.textContent = "primeira tarefa";
+            let botaoRemover = document.createElement("button");
+            botaoRemover.className = "remover";
+            botaoRemover.textContent = "Remover";
+            botaoRemover.onclick = () => removerTarefa(i)
+            novaTarefa.appendChild(botaoRemover);
+            listaTarefa.appendChild(novaTarefa);
+            inputTarefa.value = "";
+        }
+    </script>
+</body>
 
-        novaCaixa.appendChild(botaoEditar);
-        novaCaixa.appendChild(botaoExcluir);
-        novoLi.appendChild(novaCaixa);
-        document.getElementById("minhaLista").appendChild(novoLi);
-    }
-</script>
+</html>
