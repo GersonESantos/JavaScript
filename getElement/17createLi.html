@@ -1,37 +1,50 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Tarefa</title>
-    <ul id="listaTarefas"></ul>
+    <title>Document</title>
 </head>
 
 <body>
-    <div>
-        <h1>Lista De Trefas</h1>
-        <input type="text" id="inputTarefa" placeholder="Digite sua tarefa">
-        <button onclick="adicionarTarefa()"></button>
-        <ul id="listaTarefa"></ul>
+    <div class="container">
+        <h1>Lista de Tarefas</h1>
+        <p>Adicione suas tarefas!</p>
+        <input type="text" id="inputTarefa" placeholder="Digite a sua tarefa">
+        <button onclick="adicionarTarefa()">Adicionar Tarefa</button>
+        <p id="mensagem"></p>
+        <ul id="listaTarefas"></ul>
     </div>
     <script>
-        const inputTarefa = document.getElementById("inputTarefa");
-        let tarefa = inputTarefa.value;
-        let listaTarefa = document.getElementById("listaTarefas");
-        listaTarefa.innerHTML = "";
         function adicionarTarefa() {
-            let novaTarefa = document.createElement("li");
-            novaTarefa.textContent = "primeira tarefa";
-            let botaoRemover = document.createElement("button");
-            botaoRemover.className = "remover";
-            botaoRemover.textContent = "Remover";
-            botaoRemover.onclick = () => removerTarefa(i)
-            novaTarefa.appendChild(botaoRemover);
-            listaTarefa.appendChild(novaTarefa);
-            inputTarefa.value = "";
+
+            //recebe valor do input do usuário
+            let inputTarefa = document.getElementById("inputTarefa")
+            let tarefa = inputTarefa.value.trim()
+
+            if (tarefa === "") {
+                //mensagem de tarefa adicionada com erro
+                let mensagemErro = ("Por favor, insira uma tarefa válida!")
+                document.getElementById("mensagem").textContent = mensagemErro
+
+            } else {
+                //mensagem de tarefa adicionada com sucesso
+                let mensagemSucesso = "Tarefa adicionada com sucesso!"
+                document.getElementById("mensagem").textContent = mensagemSucesso
+                //cria novo item (li) e insere na (lista ul)
+                let listaTarefas = document.getElementById("listaTarefas")
+                let novaTarefa = document.createElement("li")
+                novaTarefa.textContent = tarefa
+                listaTarefas.appendChild(novaTarefa)
+            }
+
+
+            //limpa o input do usuário
+            inputTarefa.value = ""
+
+
         }
     </script>
-</body>
-
-</html>
+</body >
+</html >
