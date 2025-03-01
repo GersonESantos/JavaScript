@@ -36,6 +36,10 @@
                 let listaTarefas = document.getElementById("listaTarefas")
                 let novaTarefa = document.createElement("li")
                 novaTarefa.textContent = tarefa
+                let botaoRemover = document.createElement("button")
+                botaoRemover.className = "remover"
+                botaoRemover.textContent = "Remover"
+                novaTarefa.appendChild(botaoRemover)
                 listaTarefas.appendChild(novaTarefa)
             }
 
@@ -46,5 +50,6 @@
 
         }
     </script>
-</body >
-</html >
+</body>
+
+</html>
