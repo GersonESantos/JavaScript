@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="mensagem"></div>
+   
+    <script>
+        var p = document.createElement('p');
+        p.innerHTML = 'Ola gerson';
+        p.classList.add('text-center');
+        p.style.color = 'red';
+        p.style.fontSize = '20px';
+        document.getElementById('mensagem').appendChild(p);
+        console.log(
+            p
+        )
+    </script>
+    
+</body>
+</html>
