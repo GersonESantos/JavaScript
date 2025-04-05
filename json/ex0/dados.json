@@ -1,0 +1,26 @@
+{  
+    "usuario": {
+        "nome": "João",
+        "idade": 30,
+        "cidade": "São Paulo",
+        "profissao": "Desenvolvedor",
+        "habilidades": [
+            "JavaScript",
+            "Python",
+            "Java"
+        ],
+        "experiencia": {
+            "empresa1": {
+                "cargo": "Desenvolvedor Júnior",
+                "tempo": "2 anos"
+            },
+            "empresa2": {
+                "cargo": "Desenvolvedor Pleno",
+                "tempo": "3 anos"
+            }
+        }
+    }
+}
+
+   
+
