@@ -11,8 +11,11 @@
         let divUsuarios = document.querySelector("#usuarios");
         fetch("dados.json").then((response) => {
             response.json().then((dados) => {
-                divUsuarios.innerHTML = "<h1>Usuários</h1>";
-                console.log(dados);
+                dados.usuarios.map((usuario) => {
+                    divUsuarios.innerHTML += `<li> ${usuario.nome}</li>`;
+                    divUsuarios.innerHTML += `<li> ${usuario.idade}</li>`;;
+                });
+               
             });
         });
     </script>

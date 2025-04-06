@@ -38,7 +38,24 @@
         </ul>       
     </div>
 </body>
+<div id="usuarios"></div>
+<script>
+    let divUsuarios = document.querySelector("#usuarios");
+    fetch("dados.json").then((response) => {
+        response.json().then((dados) => {
+            dados.usuarios.map((usuario) => {
+                divUsuarios.innerHTML += `<li> Name: ${usuario.name}</li>`;
+                divUsuarios.innerHTML += `<li> ${usuario.age}</li>`;;
+                divUsuarios.innerHTML += `<li> ${usuario.isStudent}</li>`;;
+                divUsuarios.innerHTML += `<li> ${usuario.courses}</li>`;;
+                divUsuarios.innerHTML += `<li> ${usuario.address.street}</li>`;;
 
+                
+            });
+           
+        });
+    });
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-json.min.js"></script>
 
