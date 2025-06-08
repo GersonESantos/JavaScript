@@ -1,65 +1,133 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Buscar Usuário por Email</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 500px;
+            margin: auto;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+        input[type="email"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #userInfo {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+        }
+        #userInfo p {
+            margin: 5px 0;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    <div>
-        <h1>JSON</h1>
-        <p>JSON (JavaScript Object Notation) is a lightweight data interchange format that is easy for humans to read and write, and easy for machines to parse and generate. It is often used to transmit data between a server and a web application as an alternative to XML.</p>
-        <p>JSON (JavaScript Object Notation) é um formato leve de intercâmbio de dados que é fácil para humanos lerem e escreverem, e fácil para máquinas analisarem e gerarem. É frequentemente usado para transmitir dados entre um servidor e um aplicativo da web como uma alternativa ao XML</p>
-        <h2>Example</h2>
-        <pre><code class="language-json">
-    {
-        "name": "John Doe",
-        "age": 30,
-        "isStudent": false,
-        "courses": ["Math", "Science", "History"],
-        "address": 
-            {
-                "street": "123 Main St",
-                "city": "Anytown",
-                "state": "CA",
-                "zip": "12345"
-            }
-    }
-</code></pre>
-        <h2>Usage</h2>
-        <p>JSON is commonly used in web applications to send and receive data from a server. It is also used in configuration files, data storage, and APIs.</p>
-        <h2>Advantages</h2>
-        <ul>
-            <li>Lightweight and easy to read</li>
-            <li>Language-independent</li>
-            <li>Supports complex data structures</li>
-        </ul>
-        <h2>Disadvantages</h2>
-        <ul>
-            <li>No comments allowed</li>
-            <li>Data types are limited to strings, numbers, booleans, arrays, and objects</li>
-        </ul>       
+    <div class="container">
+        <h1>Buscar Usuário por Email</h1>
+        
+        <div>
+            <label for="emailInput">Email do Usuário:</label>
+            <input type="email" id="emailInput" placeholder="Digite o email">
+            <button onclick="buscarUsuario()">Buscar</button>
+        </div>
+        
+        <div id="userInfo">
+            <p>Informações do usuário aparecerão aqui...</p>
+        </div>
     </div>
-</body>
-<div id="usuarios"></div>
-<script>
-    let divUsuarios = document.querySelector("#usuarios");
-    fetch("dados.json").then((response) => {
-        response.json().then((dados) => {
-            dados.usuarios.map((usuario) => {
-                divUsuarios.innerHTML += `<li> Name: ${usuario.name}</li>`;
-                divUsuarios.innerHTML += `<li> ${usuario.age}</li>`;;
-                divUsuarios.innerHTML += `<li> ${usuario.isStudent}</li>`;;
-                divUsuarios.innerHTML += `<li> ${usuario.courses}</li>`;;
-                divUsuarios.innerHTML += `<li> ${usuario.address.street}</li>`;;
 
+    <script>
+        const userInfoDiv = document.querySelector("#userInfo");
+        const emailInput = document.querySelector("#emailInput");
+
+        async function buscarUsuario() {
+            const email = emailInput.value.trim();
+            if (!email) {
+                userInfoDiv.innerHTML = "<p class='error'>Por favor, digite um email.</p>";
+                return;
+            }
+
+            userInfoDiv.innerHTML = "<p>Buscando...</p>";
+
+            try {
+                // Certifique-se de que o servidor Node.js (server.js) está rodando na porta 3000
+                const response = await fetch(`http://localhost:3000/login?email=${encodeURIComponent(email)}`);
                 
-            });
-           
-        });
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-json.min.js"></script>
+                if (!response.ok) {
+                    // Tenta parsear o erro como JSON, caso o servidor envie um
+                    let errorDetails = `Erro HTTP: ${response.status}`;
+                    try {
+                        const errorData = await response.json();
+                        if (errorData && errorData.error) {
+                           errorDetails = errorData.error;
+                           if(errorData.details && errorData.details.message) {
+                               errorDetails += `: ${errorData.details.message}`;
+                           }
+                        }
+                    } catch (e) {
+                        // Se não for JSON, usa o status text ou o status code
+                        errorDetails = response.statusText || `Erro HTTP: ${response.status}`;
+                    }
+                    throw new Error(errorDetails);
+                }
 
+                const data = await response.json();
+
+                if (data && data.length > 0) {
+                    const usuario = data[0]; // O servidor retorna um array
+                    userInfoDiv.innerHTML = `
+                        <p><strong>Username:</strong> ${usuario.username || 'Não informado'}</p>
+                        <p><strong>Email:</strong> ${usuario.email || 'Não informado'}</p>
+                    `;
+                } else {
+                    userInfoDiv.innerHTML = "<p>Usuário não encontrado.</p>";
+                }
+            } catch (error) {
+                console.error("Erro ao buscar usuário:", error);
+                userInfoDiv.innerHTML = `<p class='error'>Erro ao buscar usuário: ${error.message}</p>`;
+            }
+        }
+    </script>
+</body>
 </html>
