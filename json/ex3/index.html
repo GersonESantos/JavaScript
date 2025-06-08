@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="usuarios"></div>
+    <script>
+        const divUsuarios = document.querySelector("#usuarios");
+        fetch("dados.json")
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(dados => {
+                if (dados && dados.usuarios && Array.isArray(dados.usuarios)) {
+                    const listaHtml = dados.usuarios.map(usuario => {
+                        return `<li>Nome: ${usuario.nome}, Idade: ${usuario.idade}</li>`;
+                    }).join('');
+                    divUsuarios.innerHTML = `<ul>${listaHtml}</ul>`;
+                } else {
+                    divUsuarios.innerHTML = "<p>Nenhum usuário encontrado ou formato de dados inválido.</p>";
+                }
+            })
+            .catch(error => {
+                console.error("Erro ao buscar ou processar os dados:", error);
+                divUsuarios.innerHTML = "<p>Ocorreu um erro ao carregar os dados dos usuários.</p>";
+                });
+    </script>
+   
+</body>
+</html>

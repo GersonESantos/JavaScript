@@ -1,62 +1,108 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Lista de Usuários</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f2f5;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+        #container {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            text-align: center; /* Centraliza o h1 e o conteúdo do #usuarios */
+        }
+        h1 {
+            color: #1d4ed8; /* Azul */
+            margin-top: 0;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+        }
+        #usuarios ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            text-align: left; /* Alinha o texto dos itens da lista à esquerda */
+        }
+        #usuarios li {
+            background-color: #f9fafb;
+            padding: 12px 15px;
+            border: 1px solid #e5e7eb;
+            margin-bottom: 8px;
+            border-radius: 6px;
+            font-size: 1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #usuarios li strong {
+            color: #111827;
+        }
+        .mensagem {
+            padding: 12px 15px;
+            margin-top: 10px;
+            border-radius: 6px;
+            font-size: 0.95em;
+            border: 1px solid transparent;
+        }
+        .erro {
+            background-color: #fee2e2;
+            color: #b91c1c;
+            border-color: #fecaca;
+        }
+        .info {
+            background-color: #e0f2fe;
+            color: #0c4a6e;
+            border-color: #bae6fd;
+        }
+    </style>
 </head>
 <body>
-    <div>
-        <h1>JSON</h1>
-        <p>JSON (JavaScript Object Notation) is a lightweight data interchange format that is easy for humans to read and write, and easy for machines to parse and generate. It is often used to transmit data between a server and a web application as an alternative to XML.</p>
-        <p>JSON (JavaScript Object Notation) é um formato leve de intercâmbio de dados que é fácil para humanos lerem e escreverem, e fácil para máquinas analisarem e gerarem. É frequentemente usado para transmitir dados entre um servidor e um aplicativo da web como uma alternativa ao XML</p>
-        <h2>Example</h2>
-        <pre><code class="language-json">{
-    "name": "John Doe",
-    "age": 30,
-    "isStudent": false,
-    "courses": ["Math", "Science", "History"],
-    "address": {
-        "street": "123 Main St",
-        "city": "Anytown",
-        "state": "CA",
-        "zip": "12345"
-    }
-}</code></pre>
-        <h2>Usage</h2>
-        <p>JSON is commonly used in web applications to send and receive data from a server. It is also used in configuration files, data storage, and APIs.</p>
-        <h2>Advantages</h2>
-        <ul>
-            <li>Lightweight and easy to read</li>
-            <li>Language-independent</li>
-            <li>Supports complex data structures</li>
-        </ul>
-        <h2>Disadvantages</h2>
-        <ul>
-            <li>No comments allowed</li>
-            <li>Data types are limited to strings, numbers, booleans, arrays, and objects</li>
-        </ul>       
+    <div id="container">
+        <h1>Lista de Usuários</h1>
+        <div id="usuarios">
+            <!-- Conteúdo dinâmico aqui -->
+        </div>
     </div>
+    <script>
+        const divUsuarios = document.querySelector("#usuarios");
+        fetch("dados.json")
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(dados => {
+                if (dados && dados.usuarios && Array.isArray(dados.usuarios) && dados.usuarios.length > 0) {
+                    const listaHtml = dados.usuarios.map(usuario => {
+                        return `<li><span>Nome: <strong>${usuario.nome}</strong></span> <span>Idade: ${usuario.idade}</span></li>`;
+                    }).join('');
+                    divUsuarios.innerHTML = `<ul>${listaHtml}</ul>`;
+                } else if (dados && dados.usuarios && Array.isArray(dados.usuarios) && dados.usuarios.length === 0) {
+                    divUsuarios.innerHTML = "<p class='mensagem info'>Nenhum usuário encontrado.</p>";
+                } else {
+                    divUsuarios.innerHTML = "<p class='mensagem erro'>Formato de dados inválido ou lista de usuários ausente.</p>";
+                }
+            })
+            .catch(error => {
+                console.error("Erro ao buscar ou processar os dados:", error);
+                divUsuarios.innerHTML = "<p class='mensagem erro'>Ocorreu um erro ao carregar os dados dos usuários.</p>";
+                });
+    </script>
+   
 </body>
-<div id="usuarios"></div>
-<script>
-    let divUsuarios = document.querySelector("#usuarios");
-    fetch("dados.json").then((response) => {
-        response.json().then((dados) => {
-            dados.usuarios.map((usuario) => {
-                divUsuarios.innerHTML += `<li> Name: ${usuario.name}</li>`;
-                divUsuarios.innerHTML += `<li> ${usuario.age}</li>`;;
-                divUsuarios.innerHTML += `<li> ${usuario.isStudent}</li>`;;
-                divUsuarios.innerHTML += `<li> ${usuario.courses}</li>`;;
-                divUsuarios.innerHTML += `<li> ${usuario.address.street}</li>`;;
-
-                
-            });
-           
-        });
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-json.min.js"></script>
-
 </html>
