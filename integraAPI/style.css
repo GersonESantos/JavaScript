@@ -1,0 +1,78 @@
+body {
+    background: #f5f6fa;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    background: #fff;
+    max-width: 500px;
+    margin: 40px auto 0 auto;
+    padding: 32px 28px 24px 28px;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08), 0 1.5px 4px rgba(0,0,0,0.06);
+}
+
+h1 {
+    color: #2d3436;
+    font-size: 2rem;
+    margin-bottom: 0.5em;
+    text-align: center;
+}
+
+h2 {
+    color: #636e72;
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 1.5em;
+    text-align: center;
+}
+
+button#fetch-users {
+    display: block;
+    margin: 0 auto 1.5em auto;
+    padding: 0.7em 2em;
+    background: #0984e3;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button#fetch-users:hover {
+    background: #74b9ff;
+}
+
+p {
+    color: #636e72;
+    text-align: center;
+    margin-bottom: 1.5em;
+}
+
+#usersList {
+    margin-top: 1.5em;
+    min-height: 40px;
+}
+
+#usersList ul {
+    list-style: none;
+    padding: 0;
+}
+
+#usersList li {
+    background: #dfe6e9;
+    margin-bottom: 0.7em;
+    padding: 0.8em 1em;
+    border-radius: 6px;
+    color: #2d3436;
+    font-size: 1rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    transition: background 0.2s;
+}
+
+#usersList li:hover {
+    background: #b2bec3;
+}
