@@ -1,0 +1,46 @@
+header {
+    background-color: #bfa9a9;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.title {
+    margin: 20px 0;
+}
+
+.card {
+    border: 1px solid #4d5e62;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 20px 0;
+}
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px 50px;
+}
+.actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+footer {
+    background-color: #b8cfb8;
+    padding: 10px 0;
+    text-align: center;
+}
+.lineProdutos {
+    margin-bottom: 15px;
+}
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}   
