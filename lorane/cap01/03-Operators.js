@@ -67,5 +67,6 @@ console.log(myObj.name); // Gerson
 console.log('nome', myObj.name); // Gerson
 console.log(myObj.name, myObj.age); // Object {name: "Gerson", age: 68}
 console.log(myObj); // Object {name: "Gerson", age: 68}
-//delete myObj.age;
-// const myObj = { name: 'John', age: 21 }; // Melhor prática
+delete myObj.age;
+//const myObj = { name: 'John', age: 21 }; // Melhor prática
+console.log(myObj);
