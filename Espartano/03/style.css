@@ -1,0 +1,81 @@
+header {
+    background-color: blueviolet;
+    padding: 10px 0;
+    text-align: center;
+}
+h1 {
+    color: white;
+    
+}
+
+.title {
+    margin: 20px 0;
+}
+
+.card {
+    border: 1px solid #4d5e62;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 20px 0;
+}
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px 50px;
+}
+.actions {
+    display: flex;
+    justify-content: space-between;
+}
+button {
+    background-color: blueviolet;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+footer {
+    background-color: #b8cfb8;
+    padding: 10px 0;
+    text-align: center;
+}
+.lineProdutos {
+    margin-bottom: 15px;
+}
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}   
+.content {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+        border: 1px solid #ccc;
+    margin-top: 20px;
+}
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+}
+td img {
+    width: 30px;
+    background-color: #fff;
+}

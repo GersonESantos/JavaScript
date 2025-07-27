@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Minha Loja</h1>
+    </header>
+    <main>
+        <div class="title">
+        <h2>Produtos</h2>
+        <span>Lista de produtos da minha loja.</span>
+    </div>
+    <div class="card">
+        <div class="lineProdutos">
+          
+            <label>Nome </label>
+            <input type="text" id="nomeProduto" placeholder="Digite o nome do produto">
+        </div>
+        <div class="lineProdutos">
+         
+            <label>Preço </label>
+            <input type="number" id="precoProduto" placeholder="Digite o preço do produto">
+        </div>
+        <button onclick="produto.adicionar()">Adicionar Produto</button>
+        <button onclick="produto.excluir()">Excluir Produto</button>
+        </div>
+        <div class="content">
+            <table border="1">
+                <thead>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Preço</th>
+                    <th>Ações</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Mesa Gamer</td>
+                        <td>R$ 1000,00</td>
+                        <td>✎</td>
+                        <td>🗑️</td>
+
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Cadeira Gamer</td>
+                        <td>R$ 500,00</td>
+                        <td><img src="img/iconEditar.png" alt="Editar"></td>
+                        <td><img src="img/iconDeletar.png" alt="Excluir"></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Teclado Gamer</td>
+                        <td>R$ 10,00</td>
+                    </tr>
+                </tbody>
+            </table>
+    </main>
+    <footer>
+        <p>&copy; 2024 Minha Loja</p>
+    </footer>
+</body>
+<script src="script.js"></script>
+</html>
