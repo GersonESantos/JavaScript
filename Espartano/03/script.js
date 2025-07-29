@@ -10,6 +10,7 @@ class Produto {
             this.adicionar(produto);
         }
         this.listatabela();
+        this.cancelar();
     
     }
     listatabela() 
@@ -75,7 +76,9 @@ class Produto {
         };
     }
     cancelar() {
-        alert(`Produto ${this.nome} cancelado com sucesso!`);
+        document.getElementById('nome').value = '';
+        document.getElementById('preco').value = '';
+        document.getElementById('nome').focus();
     }
 }
 let produto = new Produto("Notebook", 2500);
