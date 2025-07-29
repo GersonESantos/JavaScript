@@ -1,10 +1,10 @@
 class Pessoa 
 {
     // Atributos
-    nome: String;
-    idade: Number;
-    peso: Float;
-    altura: Float;
+    nome
+    idade
+    peso
+    altura
     constructor(nome, idade) {
         this.nome = nome;
         this.idade = idade;
