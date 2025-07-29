@@ -19,45 +19,34 @@
         <div class="lineProdutos">
           
             <label>Nome </label>
-            <input type="text" id="nomeProduto" placeholder="Digite o nome do produto">
+            <input type="text" id="nome" placeholder="Digite o nome do produto">
         </div>
         <div class="lineProdutos">
          
             <label>Preço </label>
-            <input type="number" id="precoProduto" placeholder="Digite o preço do produto">
+            <input type="number" id="preco" placeholder="Digite o preço do produto">
         </div>
-        <button onclick="produto.adicionar()">Adicionar Produto</button>
-        <button onclick="produto.excluir()">Excluir Produto</button>
+        <button onclick="produto.salvar()">Salvar</button>
+        <button onclick="produto.cancelar()">Cancelar</button>
         </div>
         <div class="content">
             <table border="1">
                 <thead>
-                    <th>ID</th>
+                    <th class="center">ID</th>
                     <th>Nome</th>
                     <th>Preço</th>
                     <th>Ações</th>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>1</td>
-                        <td>Mesa Gamer</td>
-                        <td>R$ 1000,00</td>
-                        <td>✎</td>
-                        <td>🗑️</td>
+                        <table>
+                            <tbody id="tbody">
+                                <!-- Os produtos serão inseridos aqui -->
+                            </tbody>
+                        </table>
 
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Cadeira Gamer</td>
-                        <td>R$ 500,00</td>
-                        <td><img src="img/iconEditar.png" alt="Editar"></td>
-                        <td><img src="img/iconDeletar.png" alt="Excluir"></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Teclado Gamer</td>
-                        <td>R$ 10,00</td>
-                    </tr>
+                    
                 </tbody>
             </table>
     </main>
