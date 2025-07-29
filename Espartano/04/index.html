@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Minha Loja</h1>
+    </header>
+    <main>
+        <div class="title">
+        <h2>Produtos</h2>
+        <span>Lista de produtos da minha loja.</span>
+    </div>
+    <div class="card">
+        <div class="lineProdutos">
+          
+            <label>Nome </label>
+            <input type="text" id="nome" placeholder="Digite o nome do produto">
+        </div>
+        <div class="lineProdutos">
+         
+            <label>Preço </label>
+            <input type="number" id="preco" placeholder="Digite o preço do produto">
+        </div>
+        <button onclick="produto.salvar()">Salvar</button>
+        <button onclick="produto.cancelar()">Cancelar</button>
+        </div>
+        <div class="content">
+            <table border="1">
+                <thead>
+                    <th class="center">ID</th>
+                    <th>Nome</th>
+                    <th>Preço</th>
+                    <th>Ações</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <table>
+                            <tbody id="tbody">
+                                <!-- Os produtos serão inseridos aqui -->
+                            </tbody>
+                        </table>
+
+                    </tr>
+                    
+                </tbody>
+            </table>
+    </main>
+    <footer>
+        <p>&copy; 2024 Minha Loja</p>
+    </footer>
+</body>
+<script src="script.js"></script>
+</html>
