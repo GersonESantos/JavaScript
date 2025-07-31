@@ -17,6 +17,16 @@ class Aves {
     }
   }
   
+  class Pato extends Aves {
+    constructor() {
+      super('Pato', 68);
+    }
+    nadar() {
+      console.log('nadando!');
+    }
+  }
+const pato = new Pato();
+pato.nadar();
 
 const aves = new Aves('Pato', 68);
 console.log('Aves instance created:', aves);
