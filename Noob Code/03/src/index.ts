@@ -1,8 +1,7 @@
-
 export class Animal {
-    tipo: string;
-    nome: string;
-    idade: number;
+   private tipo: string;
+   private nome: string;
+   private idade: number;
 
     constructor(t: string ,n: string, i: number ) {
         this.tipo = t;
@@ -13,10 +12,16 @@ export class Animal {
     apresentar() {
         console.log(`Olá, meu nome é ${this.nome} e eu tenho ${this.idade} anos.`);
     }
+    publicgetIdade() {
+        return this.idade;
+    }
+    publicsetIdade(idade: number) {
+        this.idade = idade;
+    }
 }
 
 class cachorro extends Animal {
-    raca: string;
+    private raca: string;
 
     constructor(t: string, n: string, i: number, r: string) {
         super(t, n, i);
