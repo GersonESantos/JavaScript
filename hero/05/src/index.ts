@@ -5,74 +5,46 @@ class Aves {
   constructor(especie: string, age: number) {
     this.especie = especie;
     this.age = age;
+   
   }
  
     voar(){
+   
       console.log('voando!');
     }
-    
     comer(){
       console.log('comendo!');
     }
-    
-    // Novos métodos adicionados
-    dormir() {
-      console.log('dormindo!');
+  }
+  
+  class Pato extends Aves {
+    constructor() {
+      super('Pato', 68);
     }
-    
-    cantar() {
-      console.log('cantando!');
+    nadar() {
+      console.log('Pato nadando!');
     }
-    
-    pousar() {
-      console.log('pousando!');
+  }
+  class Galinha extends Aves {
+    constructor() {
+      super('Galinha', 68);
     }
-    
-    info() {
-      console.log(`Espécie: ${this.especie}, Idade: ${this.age} anos`);
+    voar(): void {
+        console.log('Galinha voa mau!');
     }
-    
-    // Método similar ao do exemplo
-    method() {
-      console.log('Hello from Aves!');
-    }
-}
-class Pato extends Aves {
-    constructor(especie: string, age: number) {
-        super(especie, age);
-    }
-    // Sobrescrevendo o método info
-    // Método específico para Pato
-    quack() {
-        console.log(' quack! quack!  quack!');
-    }
-     method() {
-      console.log('Hello from Aves!');
-    }
-}
+  }
+const galinha = new Galinha();
+galinha.voar();
 
-const aves = new Aves('Pombo', 68);
+const pato = new Pato();
+pato.nadar();
 
+const aves = new Aves('Pato', 68);
 console.log('Aves instance created:', aves);
 aves.voar();
 aves.comer();
-aves.dormir();
-aves.cantar();
-aves.pousar();
-aves.info();
-aves.method(); // Chamando o novo método
 const myespecie = aves.especie;
+
 console.log('minha especie ' + myespecie);
 const myAge = aves.age;
-console.log('minha idade ' + myAge);
-
-const pato = new Pato('Pato', 5);
-console.log('Aves instance created:', pato);
-pato.quack();
-pato.voar();
-pato.comer();
-pato.dormir();
-pato.cantar();
-pato.pousar();
-pato.info();
-pato.method(); // Chamando o novo método
+console.log('minha idade ' +myAge);
