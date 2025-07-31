@@ -22,9 +22,20 @@ class Aves {
       super('Pato', 68);
     }
     nadar() {
-      console.log('nadando!');
+      console.log('Pato nadando!');
     }
   }
+  class Galinha extends Aves {
+    constructor() {
+      super('Galinha', 68);
+    }
+    voar(): void {
+        console.log('Galinha voa mau!');
+    }
+  }
+const galinha = new Galinha();
+galinha.voar();
+
 const pato = new Pato();
 pato.nadar();
 
