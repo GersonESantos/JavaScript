@@ -7,31 +7,28 @@
   <title>Lista de tarefas</title>
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/fontawesome/all.min.css">
-
-
   <link rel="shortcut icon" href="assets/imagens/favicon.png" type="assets/imagens/png">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
   <header>
-    <h1><i class="fa-solid fa-user-tie me-2"></i>Usuario</h1>
- 
-    
+    <h1 class="m-0 p-0 text-info"><i class="fa-solid fa-user-tie me-2"></i><span id="username"> contador</span></h1>
   </header>
   <main class="container">
     <section aria-labelledby="tarefas-title">
-      
-      <h2 id="tarefas-title"><i class="fa-solid fa-circle-chevron-right"></i> Tarefas </h2>
-
-     
+      <H3>Contador</H3>
+      <SPan  id="valor">0</SPan>
       <!-- lista de tarefas aqui -->
+      <div class="container-botoes">
+        <button class="botao diminuir">diminuir</button>
+        <button class="botao reiniciar">reiniciar</button>
+        <button class="botao aumentar">aumentar</button>
     </section>
   </main>
   <footer class="container">
       <p>© 2024 Gerson Santos</p>
-    <!-- rodapé -->
   </footer>
+  <script src="script.js"></script>
   <script src="assets/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
