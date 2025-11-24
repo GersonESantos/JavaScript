@@ -4,27 +4,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lista de tarefas</title>
+  <meta name="description" content="Contador simples com controles aumentar, diminuir e reiniciar.">
+  <title>Contador</title>
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/fontawesome/all.min.css">
-
-
-  <link rel="shortcut icon" href="assets/imagens/favicon.png" type="assets/imagens/png">
-</head>
-
+   <link rel="shortcut icon" href="assets/imagens/favicon.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+ </head>
 <body>
   <header>
-    <h1 class="m-0 p-0 text-info"><i class="fa-solid fa-user-tie me-2"></i><span id="username"></span>Usuario</h1>
-
-
+    <h1 class="m-0 p-0 text-info"><i class="fa-solid fa-user-tie me-2"></i><span id="username"></span>Contador</h1>
   </header>
   <main class="container">
-    <section aria-labelledby="tarefas-title">
-      
-      <h2 id="tarefas-title"><i class="fa-solid fa-circle-chevron-right"></i> Tarefas </h2>
+    <section aria-labelledby="Contador Stylle-title">
+      <h2 id="tarefas-title"><i class="fa-solid fa-circle-chevron-right"></i> Contador Simples </h2>
+      <span id="valor">0</span>
+      <div class="container-botoes">
+          <!-- <button class="botao diminuir">diminuir</button>
+          <button class="botao reiniciar">reiniciar</button>
+          <button class="botao aumentar">aumentar</button> -->
 
-     
-      <!-- lista de tarefas aqui -->
+       <button type="button" class="botao diminuir" aria-label="Diminuir valor">diminuir</button>
+        <button type="button" class="botao reiniciar" aria-label="Reiniciar valor">reiniciar</button>
+        <button type="button" class="botao aumentar" aria-label="Aumentar valor">aumentar</button>
+
+
+
+        </div> 
     </section>
   </main>
   <footer class="container">
@@ -32,6 +38,7 @@
     <!-- rodapé -->
   </footer>
   <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>
