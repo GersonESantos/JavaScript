@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Exemplo Prático de Slice</title>
+    <style>
+        body { font-family: sans-serif; display: flex; flex-direction: column; align-items: center; background: #f4f4f4; }
+        .galeria { display: flex; gap: 10px; margin: 20px 0; }
+        .item { 
+            width: 100px; height: 100px; border-radius: 8px; 
+            display: flex; align-items: center; justify-content: center; 
+            color: white; font-weight: bold; font-size: 20px;
+        }
+        .controles { display: flex; gap: 10px; }
+        button { padding: 10px 20px; cursor: pointer; border: none; background: #007bff; color: white; border-radius: 5px; }
+        button:hover { background: #0056b3; }
+        span { margin-top: 10px; color: #666; }
+    </style>
+</head>
+<body>
+
+    <h1>Minha Galeria (Slice JS)</h1>
+    
+    <div id="galeria-display" class="galeria"></div>
+
+    <div class="controles">
+        <button onclick="mostrarPagina(0, 3)">Ver Primeiros 3</button>
+        <button onclick="mostrarPagina(3, 6)">Ver Últimos 3</button>
+        <button onclick="mostrarPagina(0, 6)">Ver Todos</button>
+    </div>
+
+    <span id="info"></span>
+
+    <script>
+        // Nossa "Base de Dados"
+        const fotos = [
+            { id: 1, cor: '#FF5733' },
+            { id: 2, cor: '#33FF57' },
+            { id: 3, cor: '#3357FF' },
+            { id: 4, cor: '#F333FF' },
+            { id: 5, cor: '#FF33A1' },
+            { id: 6, cor: '#33FFF3' }
+        ];
+
+        function mostrarPagina(inicio, fim) {
+            const container = document.getElementById('galeria-display');
+            const info = document.getElementById('info');
+            
+            // --- A MÁGICA DO SLICE AQUI ---
+            // Pegamos apenas a parte do array que queremos exibir
+            const fatia = fotos.slice(inicio, fim);
+            
+            // Limpa a galeria antes de mostrar a nova fatia
+            container.innerHTML = '';
+            
+            // Renderiza os itens da fatia
+            fatia.forEach(foto => {
+                const div = document.createElement('div');
+                div.className = 'item';
+                div.style.backgroundColor = foto.cor;
+                div.innerText = foto.id;
+                container.appendChild(div);
+            });
+
+            info.innerText = `Exibindo do índice ${inicio} até o ${fim - 1} (Total original: ${fotos.length} itens)`;
+        }
+
+        // Inicia mostrando os 3 primeiros
+        mostrarPagina(0, 3);
+    </script>
+</body>
+</html>
